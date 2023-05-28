@@ -1,3 +1,6 @@
+import os
+import sys
+
 import c4d
 
 
@@ -10,3 +13,12 @@ def restart_me():
 
 def flush():
     c4d.documents.GetActiveDocument().Flush()
+
+
+def init():
+    if not os.environ.get('PYCHARM_ENV'):
+        import importlib
+        modules = [module for name, module in sys.modules.items() if name.startswith('mylib.')]
+        for module in modules:
+            importlib.reload(module)
+        flush()
