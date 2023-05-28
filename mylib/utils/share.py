@@ -8,5 +8,5 @@ def restart_me():
     c4d.RestartMe()
 
 
-def hello():
-    print('hello mylib!')
+def flush():
+    c4d.documents.GetActiveDocument().Flush()
