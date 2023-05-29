@@ -8,7 +8,7 @@ import c4d
 # 'C:\Users\micro\AppData\Roaming\Maxon\Maxon Cinema 4D R25_63FF7547_p\python39\libs'
 # 'C:\Users\micro\AppData\Roaming\Maxon\python\python39\libs'
 def restart_me():
-    c4d.RestartMe()
+        c4d.RestartMe()
 
 
 def flush():
@@ -16,6 +16,7 @@ def flush():
 
 
 def init():
+    # c4d.documents.CloseAllDocuments()
     if not os.environ.get('PYCHARM_ENV'):
         import importlib
         modules = [module for name, module in sys.modules.items() if name.startswith('mylib.')]
