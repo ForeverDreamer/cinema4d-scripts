@@ -67,9 +67,10 @@ mat.InsertShader(shader)
 mat[c4d.MATERIAL_COLOR_SHADER] = shader
 mat.Message(c4d.MSG_UPDATE)
 mat.Update(True, True)
-refLayer1 = mat.AddReflectionLayer()
-refLayer2 = mat.AddReflectionLayer()
-refLayer3 = mat.AddReflectionLayer()
+for i in range(3):
+    refLayer = mat.AddReflectionLayer()
+    refLayer.SetName('MyLayer'+str(i))
+    mat[refLayer.GetDataID() + c4d.REFLECTION_LAYER_MAIN_DISTRIBUTION] = c4d.REFLECTION_DISTRIBUTION_LAMBERTIAN
 # matlist = doc.GetMaterials()
 doc.InsertMaterial(mat)
 # mat = doc.SearchMaterial(matName)
